@@ -3,39 +3,6 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2">
-
-        </div>
-        <div class="col-md-8 mb-3 shadow p-3 mb-5 bg-white rounded" >
-            <center>
-
-                <form action="{{ route('search') }}" method="post">
-                    {{ csrf_field() }}
-                    <input type="text" class="col-md-3 form-control" name="searchdevice" placeholder="search">
-                    <br>
-                    <button type="submit" class="btn btn-outline-secondary">Rechercher</button>
-                </form>
-            </center>
-
-        </div>
-        <div class="col-md-2">
-
-        </div>
-            {{-- <div class="input-group">
-            <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-                <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">Button</button>
-            </div>
-            </div> --}}
-
-    </div>
-
-    <div class="row">
         {{-- <table class="table table-hover">
             <thead>
               <tr>
