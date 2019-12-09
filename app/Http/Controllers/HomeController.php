@@ -45,7 +45,6 @@ class HomeController extends Controller
 
         $productphone = $fonoapi->getDevice($input['searchdevice']);
 
-        dump($productphone);
         return view('home',compact('productphone','searchdevice'));
 
     }
@@ -56,55 +55,167 @@ class HomeController extends Controller
         $devicename = $input['DeviceName'];
 
         $productphone->DeviceName = $devicename;
-        $productphone->technology = $input['technology'];
-        $productphone->_2g_bands = $input['_2g_bands'];
-        $productphone->_3g_bands = $input['_3g_bands'];
-        $productphone->_4g_bands = $input['_4g_bands'];
-        $productphone->speed = $input['speed'];
-        $productphone->usb = $input['usb'];
-        $productphone->announced = $input['announced'];
-        $productphone->status = $input['status'];
-        $productphone->dimensions = $input['dimensions'];
-        $productphone->weight = $input['weight'];
-        $productphone->sim = $input['sim'];
-        $productphone->type = $input['type'];
-        $productphone->size = $input['size'];
-        $productphone->resolution = $input['resolution'];
-        $productphone->protection = $input['protection'];
-        $productphone->os = $input['os'];
-        $productphone->chipset = $input['chipset'];
-        $productphone->cpu = $input['cpu'];
-        $productphone->gpu = $input['gpu'];
-        $productphone->card_slot = $input['card_slot'];
-        $productphone->internal = $input['internal'];
-        $productphone->triple = $input['triple'];
-        $productphone->dual_ = $input['dual_'];
-        $productphone->features = $input['features'];
-        $productphone->video = $input['video'];
+        if (isset($input['technology'])) {
+            # code...
+            $productphone->technology = $input['technology'];
+        }
+        if (isset($input['_2g_bands'])) {
+            # code...
+            $productphone->_2g_bands = $input['_2g_bands'];
+        }
+        if (isset($input['_3g_bands'])) {
+            # code...
+            $productphone->_3g_bands = $input['_3g_bands'];
+        }
+        if (isset($input['_4g_bands'])) {
+            # code...
+            $productphone->_4g_bands = $input['_4g_bands'];
+        }
+        if (isset($input['speed'])) {
+            # code...
+            $productphone->speed = $input['speed'];
+        }
+        if (isset($input['usb'])) {
+            # code...
+            $productphone->usb = $input['usb'];
+        }
+        if (isset($input['announced'])) {
+            # code...
+            $productphone->announced = $input['announced'];
+        }
+        if (isset($input['status'])) {
+            # code...
+            $productphone->status = $input['status'];
+        }
+        if (isset($input['dimensions'])) {
+            # code...
+            $productphone->dimensions = $input['dimensions'];
+        }
+        if (isset($input['weight'])) {
+            # code...
+            $productphone->weight = $input['weight'];
+        }
+        if (isset($input['sim'])) {
+            # code...
+            $productphone->sim = $input['sim'];
+        }
+        if (isset($input['type'])) {
+            # code...
+            $productphone->type = $input['type'];
+        }
+        if (isset($input['size'])) {
+            # code...
+            $productphone->size = $input['size'];
+        }
+        if (isset($input['resolution'])) {
+            # code...
+            $productphone->resolution = $input['resolution'];
+        }
+        if (isset($input['protection'])) {
+            # code...
+            $productphone->protection = $input['protection'];
+        }
+        if (isset($input['os'])) {
+            # code...
+            $productphone->os = $input['os'];
+        }
+        if (isset($input['chipset'])) {
+            # code...
+            $productphone->chipset = $input['chipset'];
+        }
+        if (isset($input['cpu'])) {
+            # code...
+            $productphone->cpu = $input['cpu'];
+        }
+        if (isset($input['gpu'])) {
+            # code...
+            $productphone->gpu = $input['gpu'];
+        }
+        if (isset($input['card_slot'])) {
+            # code...
+            $productphone->card_slot = $input['card_slot'];
+        }
+        if (isset($input['internal'])) {
+            # code...
+            $productphone->internal = $input['internal'];
+        }
+        if (isset($input['triple'])) {
+            # code...
+            $productphone->triple = $input['triple'];
+        }
+        if (isset($input['dual_'])) {
+            # code...
+            $productphone->dual_ = $input['dual_'];
+        }
+        if (isset($input['features'])) {
+            # code...
+            $productphone->features = $input['features'];
+        }
+        if (isset($input['video'])) {
+            # code...
+            $productphone->video = $input['video'];
+        }
         if (isset($input['single'])) {
             # code...
             $productphone->single = $input['single'];
         }
-        $productphone->loudspeaker_ = $input['loudspeaker_'];
-        $productphone->_3_5mm_jack_ = $input['_3_5mm_jack_'];
-        $productphone->wlan = $input['wlan'];
-        $productphone->bluetooth = $input['bluetooth'];
-        $productphone->gps = $input['gps'];
-        $productphone->nfc = $input['nfc'];
+        if (isset($input['loudspeaker_'])) {
+            # code...
+            $productphone->loudspeaker_ = $input['loudspeaker_'];
+        }
+        if (isset($input['_3_5mm_jack_'])) {
+            # code...
+            $productphone->_3_5mm_jack_ = $input['_3_5mm_jack_'];
+        }
+        if (isset($input['wlan'])) {
+            # code...
+            $productphone->wlan = $input['wlan'];
+        }
+        if (isset($input['bluetooth'])) {
+            # code...
+            $productphone->bluetooth = $input['bluetooth'];
+        }
+        if (isset($input['gps'])) {
+            # code...
+            $productphone->gps = $input['gps'];
+        }
+        if (isset($input['nfc'])) {
+            # code...
+            $productphone->nfc = $input['nfc'];
+        }
+
         if (isset($input['radio'])) {
             # code...
             $productphone->radio = $input['radio'];
         }
-        $productphone->usb = $input['usb'];
-        $productphone->sensors = $input['sensors'];
-        $productphone->charging = $input['charging'];
-        $productphone->colors = $input['colors'];
+        if (isset($input['usb'])) {
+            # code...
+            $productphone->usb = $input['usb'];
+        }
+        if (isset($input['sensors'])) {
+            # code...
+            $productphone->sensors = $input['sensors'];
+        }
+        if (isset($input['charging'])) {
+            # code...
+            $productphone->charging = $input['charging'];
+        }
+        if (isset($input['colors'])) {
+            # code...
+            $productphone->colors = $input['colors'];
+        }
         if (isset($input['models'])) {
             # code...
             $productphone->models = $input['models'];
         }
-        $productphone->sar = $input['sar'];
-        $productphone->price = $input['price'];
+        if (isset($input['sar'])) {
+            # code...
+            $productphone->sar = $input['sar'];
+        }
+        if (isset($input['price'])) {
+            # code...
+            $productphone->price = $input['price'];
+        }
 
         $productphone->save();
 
