@@ -8,19 +8,27 @@ use App\fonoapi;
 // use Illuminate\Contracts\View\View;
 use App\Productphone;
 use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\WithTitle;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithMapping;
 
-class Export implements FromQuery, WithMapping
+class Export implements FromQuery, WithMapping, WithTitle
 {
-    // var $id;
-    // var $devicename;
 
     use Exportable;
+    var $devicename;
+
+    public function __construct($devicename){
+        $this->devicename = $devicename;
+    }
 
     public function query()
     {
-        return Productphone::query();
+        $devicename = $this->devicename;
+
+        return Productphone
+        ::query()
+        ->where('DeviceName',$devicename->DeviceName);
     }
 
     public function map($productphone): array
@@ -73,28 +81,14 @@ class Export implements FromQuery, WithMapping
 
         ];
     }
-    // public function view(): View
-    // {
 
-    //     $fonoapi = new fonoapi("f91c731dfb97dd2473f75cb8b942c71543fe85ef4f85809e");
+    /**
+     * @return string
+     */
+    public function title(): string
+    {
+        $devicename = $this->devicename;
+        return $devicename->DeviceName;
+    }
 
-    //     $productphone = $fonoapi->getDevice($this->devicename);
-    //     // $productphone[$this->id]->status_reseaux = 'GSM';
-    //     // $productphone[$this->id]->size =  Str::limit($productphone[$this->id]->size, 3,'');
-    //     // $productphone[$this->id]->dimensions =  Str::limit($productphone[$this->id]->dimensions, 20,'');
-    //     // $productphone[$this->id]->weight =  Str::limit($productphone[$this->id]->weight, 5,'');
-
-
-    //     // if($productphone[$this->id]->_4g_bands){
-    //     //     $productphone[$this->id]->status_reseaux = "GSM / HSPA / LTE";
-    //     // }elseif(!$productphone[$this->id]->_4g_bands && $productphone[$this->id]->_3g_bands){
-    //     //     $productphone[$this->id]->status_reseaux = "GSM / HSPA";
-    //     // }
-
-    //     // $device[] = $productphone[$this->id];
-
-    //     return view('layouts.template_excel', [
-    //         'phone' => $productphone[$this->id]
-    //     ]);
-    // }
 }

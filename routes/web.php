@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home', 'HomeController@recupDevice')->name('search');
+Route::post('/import', 'HomeController@import')->name('import');
 Route::get('/export', 'HomeController@export')->name('export');
 Route::get('/show_device', 'HomeController@show_device')->name('show_device');
 Route::get('/insertDevice', 'HomeController@insertDevice')->name('insertDevice');
