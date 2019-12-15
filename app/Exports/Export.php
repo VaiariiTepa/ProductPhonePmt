@@ -28,7 +28,7 @@ class Export implements FromQuery, WithMapping, WithTitle
 
         return Productphone
         ::query()
-        ->where('DeviceName',$devicename->DeviceName);
+        ->where('DeviceName','like','%'.$devicename->DeviceName.'%');
     }
 
     public function map($productphone): array

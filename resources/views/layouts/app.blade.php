@@ -7,7 +7,16 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+	<link rel='icon' type='image/png' href='{{ asset("images/icons/favicon.ico") }}'/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animate/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/css-hamburgers/hamburgers.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animsition/css/animsition.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/select2/select2.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('vendor/daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <style>
         #specs-list th {
@@ -44,24 +53,26 @@
                         @else
 
                         <nav class="navbar navbar-light bg-light">
-                            <a class="navbar-brand">
+                            {{-- <a class="navbar-brand">
                                 <h4>
                                     <strong>B</strong>onjour
                                     {{ Auth::user()->name }}
                                 </h4>
-                            </a>
+                            </a> --}}
 
                             {{-- barre de recherche téléphone --}}
-                            <form action="{{ route('search') }}" method="post" class="form-inline">
+                            {{-- <form action="{{ route('search') }}" method="post" class="form-inline">
                                     {{ csrf_field() }}
                                 <input class="form-control mr-sm-2" type="text" name="searchdevice" placeholder="modèle Téléphone" aria-label="Search">
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                            </form>
-                            <form method="post" action="{{ route('import') }}" enctype="multipart/form-data">
+                            </form> --}}
+
+
+                            {{-- <form method="post" action="{{ route('import') }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <input type="file" name="mon_fichier" placeholder="fichier EXCEL">
                                 <button type="submit">importer</button>
-                            </form>
+                            </form> --}}
 
                             {{-- boutton de déconnexion --}}
                             <form class="form-inline" action="{{ route('logout') }}" method="POST">
@@ -103,5 +114,27 @@
 <script>
 $('.collapse').collapse();
 </script>
+<script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('vendor/animsition/js/animsition.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('vendor/daterangepicker/moment.min.js') }}"></script>
+	<script src="{{ asset('vendor/daterangepicker/daterangepicker.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('vendor/countdowntime/countdowntime.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ asset('js/main.js') }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+      </script>
 </body>
 </html>

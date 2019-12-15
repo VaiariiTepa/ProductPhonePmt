@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\fonoapi;
+use Psy\Util\Str;
 use App\Productphone;
 use App\Exports\Export;
-use Illuminate\Support\Str;
 use App\Imports\PhoneImport;
 use Illuminate\Http\Request;
 use App\Exports\MultipleOnglet;
@@ -290,10 +290,9 @@ class HomeController extends Controller
                 # code...
                 $fonoapi = new fonoapi("f91c731dfb97dd2473f75cb8b942c71543fe85ef4f85809e");
                 $result = $fonoapi->getDevice($c[0]);
-                
+
                 if ($result !== 'No Matching Results Found') {
-                    # code...
-                    $productphone[] = $fonoapi->getDevice($c[0]);
+                    $productphone[] = $result;
                 }
 
             }
