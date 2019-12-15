@@ -4,6 +4,7 @@ namespace App;
 
 
 
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 
 class fonoapi extends Model
@@ -70,7 +71,7 @@ class fonoapi extends Model
 				$innerException = " | <strong>innerException</strong> : " . $result->innerException;
 			}
 
-			throw new Exception($result->message . $innerException);
+			return "No Matching Results Found";
 		}else {
 			return $result;
 		}

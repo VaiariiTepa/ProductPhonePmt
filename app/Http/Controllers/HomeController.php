@@ -289,8 +289,12 @@ class HomeController extends Controller
             if (!empty($c[0])) {
                 # code...
                 $fonoapi = new fonoapi("f91c731dfb97dd2473f75cb8b942c71543fe85ef4f85809e");
-
-                $productphone[] = $fonoapi->getDevice($c[0]);
+                $result = $fonoapi->getDevice($c[0]);
+                
+                if ($result !== 'No Matching Results Found') {
+                    # code...
+                    $productphone[] = $fonoapi->getDevice($c[0]);
+                }
 
             }
 
@@ -302,8 +306,10 @@ class HomeController extends Controller
         foreach ($productphone as $value) {
             # code...
             foreach ($value as $k => $v) {
-
-                $this->insertDevice($v);
+                if (isset($v->DeviceName)) {
+                    # code...
+                    $this->insertDevice($v);
+                }
             }
         }
 
