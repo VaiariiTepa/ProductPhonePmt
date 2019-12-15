@@ -57,6 +57,11 @@
                                 <input class="form-control mr-sm-2" type="text" name="searchdevice" placeholder="modèle Téléphone" aria-label="Search">
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                             </form>
+                            <form method="post" action="{{ route('import') }}" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type="file" name="mon_fichier" placeholder="fichier EXCEL">
+                                <button type="submit">importer</button>
+                            </form>
 
                             {{-- boutton de déconnexion --}}
                             <form class="form-inline" action="{{ route('logout') }}" method="POST">

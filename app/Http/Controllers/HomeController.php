@@ -7,7 +7,9 @@ use App\fonoapi;
 use App\Productphone;
 use App\Exports\Export;
 use Illuminate\Support\Str;
+use App\Imports\PhoneImport;
 use Illuminate\Http\Request;
+use App\Exports\MultipleOnglet;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
@@ -49,172 +51,175 @@ class HomeController extends Controller
 
     }
 
-    public function insertDevice(Request $request,Productphone $productphone){
-        DB::table('productphones')->truncate();
-        $input = $request->all();
-        $devicename = $input['DeviceName'];
+    public function insertDevice($v){
+        // dump($v->DeviceName);
+        $productphone = new Productphone();
 
-        $productphone->DeviceName = $devicename;
-        if (isset($input['technology'])) {
+        // $input = $request->all();
+        // $devicename =  ;
+
+        $productphone->DeviceName = $v->DeviceName;
+
+        if (isset($v->technology)){
             # code...
-            $productphone->technology = $input['technology'];
+            $productphone->technology = $v->technology ;
         }
-        if (isset($input['_2g_bands'])) {
+        if (isset( $v->_2g_bands)) {
             # code...
-            $productphone->_2g_bands = $input['_2g_bands'];
+            $productphone->_2g_bands = $v->_2g_bands ;
         }
-        if (isset($input['_3g_bands'])) {
+        if (isset($v->_3g_bands) ) {
             # code...
-            $productphone->_3g_bands = $input['_3g_bands'];
+            $productphone->_3g_bands = $v->_3g_bands;
         }
-        if (isset($input['_4g_bands'])) {
+        if (isset($v->_4g_bands) ) {
             # code...
-            $productphone->_4g_bands = $input['_4g_bands'];
+            $productphone->_4g_bands =  $v->_4g_bands;
         }
-        if (isset($input['speed'])) {
+        if (isset( $v->speed)) {
             # code...
-            $productphone->speed = $input['speed'];
+            $productphone->speed = $v->speed ;
         }
-        if (isset($input['usb'])) {
+        if (isset($v->usb) ) {
             # code...
-            $productphone->usb = $input['usb'];
+            $productphone->usb = $v->usb;
         }
-        if (isset($input['announced'])) {
+        if (isset($v->announced) ) {
             # code...
-            $productphone->announced = $input['announced'];
+            $productphone->announced = $v->announced;
         }
-        if (isset($input['status'])) {
+        if (isset($v->status )) {
             # code...
-            $productphone->status = $input['status'];
+            $productphone->status =  $v->status;
         }
-        if (isset($input['dimensions'])) {
+        if (isset($v->dimensions) ) {
             # code...
-            $productphone->dimensions = $input['dimensions'];
+            $productphone->dimensions = $v->dimensions;
         }
-        if (isset($input['weight'])) {
+        if (isset($v->weight) ) {
             # code...
-            $productphone->weight = $input['weight'];
+            $productphone->weight = $v->weight ;
         }
-        if (isset($input['sim'])) {
+        if (isset($v->sim) ) {
             # code...
-            $productphone->sim = $input['sim'];
+            $productphone->sim = $v->sim ;
         }
-        if (isset($input['type'])) {
+        if (isset($v->type) ) {
             # code...
-            $productphone->type = $input['type'];
+            $productphone->type =  $v->type;
         }
-        if (isset($input['size'])) {
+        if (isset($v->size) ) {
             # code...
-            $productphone->size = $input['size'];
+            $productphone->size = $v->size ;
         }
-        if (isset($input['resolution'])) {
+        if (isset($v->resolution) ) {
             # code...
-            $productphone->resolution = $input['resolution'];
+            $productphone->resolution =  $v->resolution;
         }
-        if (isset($input['protection'])) {
+        if (isset($v->protection) ) {
             # code...
-            $productphone->protection = $input['protection'];
+            $productphone->protection =  $v->protection;
         }
-        if (isset($input['os'])) {
+        if (isset($v->os) ) {
             # code...
-            $productphone->os = $input['os'];
+            $productphone->os = $v->os ;
         }
-        if (isset($input['chipset'])) {
+        if (isset( $v->chipset)) {
             # code...
-            $productphone->chipset = $input['chipset'];
+            $productphone->chipset =  $v->chipset;
         }
-        if (isset($input['cpu'])) {
+        if (isset($v->cpu )) {
             # code...
-            $productphone->cpu = $input['cpu'];
+            $productphone->cpu = $v->cpu ;
         }
-        if (isset($input['gpu'])) {
+        if (isset($v->gpu) ) {
             # code...
-            $productphone->gpu = $input['gpu'];
+            $productphone->gpu =  $v->gpu;
         }
-        if (isset($input['card_slot'])) {
+        if (isset($v->card_slot) ) {
             # code...
-            $productphone->card_slot = $input['card_slot'];
+            $productphone->card_slot =  $v->card_slot;
         }
-        if (isset($input['internal'])) {
+        if (isset($v->internal) ) {
             # code...
-            $productphone->internal = $input['internal'];
+            $productphone->internal =  $v->internal;
         }
-        if (isset($input['triple'])) {
+        if (isset($v->triple) ) {
             # code...
-            $productphone->triple = $input['triple'];
+            $productphone->triple =  $v->triple;
         }
-        if (isset($input['dual_'])) {
+        if (isset($v->dual_) ) {
             # code...
-            $productphone->dual_ = $input['dual_'];
+            $productphone->dual_ =  $v->dual_;
         }
-        if (isset($input['features'])) {
+        if (isset($v->features) ) {
             # code...
-            $productphone->features = $input['features'];
+            $productphone->features =  $v->features;
         }
-        if (isset($input['video'])) {
+        if (isset($v->video) ) {
             # code...
-            $productphone->video = $input['video'];
+            $productphone->video = $v->video ;
         }
-        if (isset($input['single'])) {
+        if (isset($v->single) ) {
             # code...
-            $productphone->single = $input['single'];
+            $productphone->single =  $v->single;
         }
-        if (isset($input['loudspeaker_'])) {
+        if (isset($v->loudspeaker_) ) {
             # code...
-            $productphone->loudspeaker_ = $input['loudspeaker_'];
+            $productphone->loudspeaker_ =  $v->loudspeaker_;
         }
-        if (isset($input['_3_5mm_jack_'])) {
+        if (isset($v->_3_5mm_jack_) ) {
             # code...
-            $productphone->_3_5mm_jack_ = $input['_3_5mm_jack_'];
+            $productphone->_3_5mm_jack_ = $v->_3_5mm_jack_ ;
         }
-        if (isset($input['wlan'])) {
+        if (isset($v->wlan) ) {
             # code...
-            $productphone->wlan = $input['wlan'];
+            $productphone->wlan =  $v->wlan;
         }
-        if (isset($input['bluetooth'])) {
+        if (isset($v->bluetooth) ) {
             # code...
-            $productphone->bluetooth = $input['bluetooth'];
+            $productphone->bluetooth =  $v->bluetooth;
         }
-        if (isset($input['gps'])) {
+        if (isset($v->gps) ) {
             # code...
-            $productphone->gps = $input['gps'];
+            $productphone->gps = $v->gps ;
         }
-        if (isset($input['nfc'])) {
+        if (isset($v->nfc) ) {
             # code...
-            $productphone->nfc = $input['nfc'];
+            $productphone->nfc =  $v->nfc;
         }
 
-        if (isset($input['radio'])) {
+        if (isset($v->radio) ) {
             # code...
-            $productphone->radio = $input['radio'];
+            $productphone->radio =  $v->radio;
         }
-        if (isset($input['usb'])) {
+        if (isset($v->usb) ) {
             # code...
-            $productphone->usb = $input['usb'];
+            $productphone->usb =  $v->usb;
         }
-        if (isset($input['sensors'])) {
+        if (isset($v->sensors) ) {
             # code...
-            $productphone->sensors = $input['sensors'];
+            $productphone->sensors =  $v->sensors;
         }
-        if (isset($input['charging'])) {
+        if (isset($v->charging )) {
             # code...
-            $productphone->charging = $input['charging'];
+            $productphone->charging = $v->charging ;
         }
-        if (isset($input['colors'])) {
+        if (isset($v->colors) ) {
             # code...
-            $productphone->colors = $input['colors'];
+            $productphone->colors =  $v->colors;
         }
-        if (isset($input['models'])) {
+        if (isset($v->models) ) {
             # code...
-            $productphone->models = $input['models'];
+            $productphone->models =  $v->models;
         }
-        if (isset($input['sar'])) {
+        if (isset($v->sar) ) {
             # code...
-            $productphone->sar = $input['sar'];
+            $productphone->sar = $v->sar ;
         }
-        if (isset($input['price'])) {
+        if (isset($v->price) ) {
             # code...
-            $productphone->price = $input['price'];
+            $productphone->price = $v->price ;
         }
 
         $productphone->save();
@@ -223,9 +228,9 @@ class HomeController extends Controller
 
         // return Excel::download(new Export, $devicename.'_Product_Pad.xlsx');
         // return (new Export)->download($devicename.'_Product_Pad.xlsx');
-        return redirect()->action(
-            'HomeController@export', ['devicename' => $devicename]
-        );
+        // return redirect()->action(
+        //     'HomeController@export', ['devicename' => $devicename]
+        // );
 
 
     }
@@ -258,45 +263,51 @@ class HomeController extends Controller
         return view('device',compact('device','id','searchdevice'));
     }
 
-    public function export(){
+    public function export($productphone){
+        // dump($productphone);
+        return Excel::download(new MultipleOnglet($productphone), 'ProductPhone_Product_Pad.xlsx');
 
-        // $input = $request->all();
+    }
 
-        // $id = $input['id'];
-        // $searchdevice = $input['searchdevice'];
-        $devicename = $_GET['devicename'];
+    public function import(Request $request){
 
-        // return (new Export)->download($devicename.'_Product_Pad.xlsx');
-        return Excel::download(new Export, $devicename.'_Product_Pad.xlsx');
-        // return Excel::create('Test', function($excel) {
+        // Excel::import(new UsersImport, request()->file('mon_fichier'));
 
-        //     // Set the title
-        //     $excel->setTitle('Mon premier excel laravel');
+        $collection = Excel::toCollection(new PhoneImport, $request->file('mon_fichier'));
+        $collection = reset($collection);
+        $collection = reset($collection);
+        // $collection = reset($collection);
+        // $collection = reset($collection);
+        // $collection = reset($collection);
 
-        //     // Call them separately
-        //     $excel->setDescription('A demonstration to change the file properties');
+        // $fonoapi = new fonoapi("f91c731dfb97dd2473f75cb8b942c71543fe85ef4f85809e");
 
-        //                 // Manipulate first row
-        //     $excel->row(1, array(
-        //         'test1', 'test2'
-        //     ));
+        // $productphone = $fonoapi->getDevice($collection[1]);
+        $productphone = [];
+        foreach($collection as $key => $c){
 
-        //     // Manipulate 2nd row
-        //     $excel->row(2, array(
-        //     'test3', 'test4'
-        //     ));
+            if (!empty($c[0])) {
+                # code...
+                $fonoapi = new fonoapi("f91c731dfb97dd2473f75cb8b942c71543fe85ef4f85809e");
 
-        //     // Set black background
-        //     $sheet->row(3, function($row) {
+                $productphone[] = $fonoapi->getDevice($c[0]);
 
-        //         // call cell manipulation methods
-        //         $row->setBackground('#000000');
+            }
 
-        //     });
-        //     #Append
 
-        // });
-        // $users = User::all();
-        // return view('layouts.template_excel',compact('users'));
+        }
+
+        DB::table('productphones')->truncate();
+
+        foreach ($productphone as $value) {
+            # code...
+            foreach ($value as $k => $v) {
+
+                $this->insertDevice($v);
+            }
+        }
+
+        return Excel::download(new MultipleOnglet($productphone), 'ProductPhone_Product_Pad.xlsx');
+
     }
 }

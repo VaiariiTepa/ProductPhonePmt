@@ -3,36 +3,6 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        {{-- <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">DeviceName</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-                @foreach($productphone as $key => $phone)
-                    <tr>
-                        <td>
-
-                        </td>
-                        <td>
-                            {{$phone->DeviceName}}
-                        </td>
-                        <td>
-                    <form action="{{ route('show_device') }}">
-                        {{ csrf_field() }}
-                        <input type="hidden" name="id" value="{{$key}}">
-                        <input type="hidden" name="searchdevice" value="{{$searchdevice}}">
-
-                        <button type="submit">détail</button>
-                    </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table> --}}
 
         @foreach($productphone as $key=>$phone)
 
@@ -54,45 +24,7 @@
                             <input type="hidden" name="searchdevice" value="{{$searchdevice}}">
                             <input type="hidden" name="DeviceName" value="{{$phone->DeviceName}}">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                             <button type="submit">Exporter</button>
-
 
                     </div>
 
@@ -448,21 +380,15 @@
                                             @endisset
                                             </tbody>
                                             </table>
-
-
-
-
                                             {{-- --------------------------------------------------------------------------------------------------------------------------------- --}}
                             </div>
                         </div>
-                    {{-- </div> --}}
-
                 </div>
                 <div class="col-md-1">
 
                 </div>
-            </form>
-                @endforeach
+                </form>
+            @endforeach
             </div>
         </div>
                     {{-- <a href="{{ route('table') }}" >test with create Excel</a>
