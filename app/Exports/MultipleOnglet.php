@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Exports\Export;
+use Illuminate\Support\Str;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
@@ -21,7 +22,10 @@ class MultipleOnglet implements WithMultipleSheets
         $sheets = [];
         // dump($this->productphone[0]);
         foreach ($this->productphone as $key => $value) {
+            // $value = array_slice($value,0,30);
             foreach ($value as $k => $v) {
+
+
 
                 $sheets[] = new Export($v);
 

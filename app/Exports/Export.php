@@ -7,6 +7,7 @@ use App\fonoapi;
 // use Illuminate\Support\Str;
 // use Illuminate\Contracts\View\View;
 use App\Productphone;
+use Illuminate\Support\Str;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use Maatwebsite\Excel\Concerns\Exportable;
@@ -88,7 +89,8 @@ class Export implements FromQuery, WithMapping, WithTitle
     public function title(): string
     {
         $devicename = $this->devicename;
-        return $devicename->DeviceName;
+        $devicename = Str::limit($devicename->DeviceName,28);
+        return $devicename;
     }
 
 }

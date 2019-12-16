@@ -290,7 +290,7 @@ class HomeController extends Controller
                 # code...
                 $fonoapi = new fonoapi("f91c731dfb97dd2473f75cb8b942c71543fe85ef4f85809e");
                 $result = $fonoapi->getDevice($c[0]);
-
+                // dump($result);
                 if ($result !== 'No Matching Results Found') {
                     $productphone[] = $result;
                 }
